@@ -1,7 +1,7 @@
 # JavaScript Comparisons
 
 ## Overview
-In addition to performing arithmetic and assigning value to variables, JavaScript has additional operators for comparing values. The return value for a comparison is **always** `true` or `false`.
+In addition to performing arithmetic and assigning value to variables, JavaScript has additional operators for comparing values. The value returned by a comparison is **always** `true` or `false`.
 
 ## Objectives
 1. Compare values with `===` and `!==` to test for equality.
@@ -15,43 +15,43 @@ In addition to performing arithmetic and assigning value to variables, JavaScrip
 The **loose equality operator** returns `true` if two values are equal:
 ```js
 42 == 42
-//=> true
+// => true
 ```
 
 However, it will _also_ return `true` if it can perform a type conversion (e.g., changing the string `'42'` into the number `42`) that makes the two values equal:
 ```js
 42 == '42'
-//=> true
+// => true
 
 true == 1
-//=> true
+// => true
 
 '0' == false
-//=> true
+// => true
 
 null == undefined
-//=> true
+// => true
 ```
 
 This is confusing and bad! ***Never use `==` for comparisons***.
 
 ### `===`
-The **strict equality** or **identity operator** returns `true` if two values are equal _without performing type conversions_:
+The **strict equality** or **identity operator** returns `true` if two values are equal _without performing type conversions_. That is, even if the values on both sides of the operator look similar (e.g., `'42' === 42`), the `===` operator will only return `true` if the data types also match:
 ```js
 42 === 42
-//=> true
+// => true
 
-42 == '42'
-//=> false
+42 === '42'
+// => false
 
-true == 1
-//=> false
+true === 1
+// => false
 
-'0' == false
-//=> false
+'0' === false
+// => false
 
-null == undefined
-//=> false
+null === undefined
+// => false
 ```
 
 This is logical and good! ***Always use `===` for comparisons***.
@@ -60,10 +60,13 @@ This is logical and good! ***Always use `===` for comparisons***.
 The **loose inequality operator** is the opposite of `==`. It returns `true` if two values are _not_ equal, performing type conversions as necessary:
 ```js
 9000 != 9001
-//=> true
+// => true
 
 9001 != '9001'
-//=> false
+// => false
+
+[] != ''
+// => false
 ```
 
 Once again, ***never use `!=` for comparisons***.
@@ -72,34 +75,43 @@ Once again, ***never use `!=` for comparisons***.
 The **strict inequality** or **non-identity operator** returns `true` if two values are _not_ equal and does not perform type conversions:
 ```js
 9000 !== 9001
-//=> true
+// => true
 
 9001 !== '9001'
-//=> true
+// => true
+
+[] !== ''
+// => true
 ```
 
 ***Always use `!==` for comparisons***.
 
 ## Relational operators
-The **greater than** (`>`), **greater than or equals** (`>=`), **less than** (`<`), and **less than or equals** (`<=`) operators are pretty self-explanatory, but beware of type conversion when comparing non-numbers against numbers:
+The **greater than** (`>`), **greater than or equals** (`>=`), **less than** (`<`), and **less than or equals** (`<=`) operators are pretty self-explanatory:
 ```js
 88 > 9
-//=> true
+// => true
+```
 
-// When a string is compared with a number, the JavaScript engine tries to convert the string to a number:
+However, beware of type conversion when comparing non-numbers against numbers. For instance, when a string is compared with a number, the JavaScript engine tries to convert the string to a number:
+```js
 88 > '9'
-//=> true
+// => true
+```
 
-// If the engine can't convert the string into a number, the comparison will always return 'false':
+If the engine can't convert the string into a number, the comparison will always return `false`:
+```js
 88 >= 'hello'
-//=> false
+// => false
 
 88 <= 'hello'
-//=> false
+// => false
+```
 
-// Strings are compared with other strings lexicographically, meaning character-by-character from left-to-right. The following returns 'false' because the Unicode value of '8', the first character in '88', is less than the Unicode value of '9'.
+Strings are compared with other strings lexicographically, meaning character-by-character from left-to-right. The following returns `false` because the Unicode value of `8`, the first character in `88`, is less than the Unicode value of `9`.
+```js
 '88' > '9'
-//=> false
+// => false
 ```
 
 ***Top Tip***: Stick to comparing numerical values with the relational operators and you'll be golden.
