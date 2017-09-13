@@ -31,12 +31,15 @@ true == 1
 
 null == undefined
 // => true
+
+' ' == 0
+// => true
 ```
 
-This is confusing and bad! ***Never use `==` for comparisons***.
+This is confusing and bad! It makes no sense that the string `'0'` is equal to the boolean `false` or that `null` and `undefined` — two **completely different** primitive data types — are equivalent. ***Never use `==` for comparisons***.
 
 ### `===`
-The **strict equality** or **identity operator** returns `true` if two values are equal _without performing type conversions_. That is, even if the values on both sides of the operator look similar (e.g., `'42' === 42`), the `===` operator will only return `true` if the data types also match:
+The **strict equality operator** returns `true` if two values are equal _without performing type conversions_. That is, even if the values on both sides of the operator look similar (e.g., `'42' === 42`), the `===` operator will only return `true` if the data types also match:
 ```js
 42 === 42
 // => true
@@ -51,6 +54,9 @@ true === 1
 // => false
 
 null === undefined
+// => false
+
+' ' === 0
 // => false
 ```
 
@@ -72,7 +78,7 @@ The **loose inequality operator** is the opposite of `==`. It returns `true` if 
 Once again, ***never use `!=` for comparisons***.
 
 ### `!==`
-The **strict inequality** or **non-identity operator** returns `true` if two values are _not_ equal and does not perform type conversions:
+The **strict inequality operator** returns `true` if two values are _not_ equal and does not perform type conversions:
 ```js
 9000 !== 9001
 // => true
