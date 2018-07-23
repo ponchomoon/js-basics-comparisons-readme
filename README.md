@@ -159,7 +159,7 @@ value of `9`.
 ```
 If you aren't sure what data type you are going to be receiving, but you still
 need to compare them, make sure that you tell JavaScript to [convert the string
-to a number first][convert], and then compare.
+to a number first](https://gomakethings.com/converting-strings-to-numbers-with-vanilla-javascript/), and then compare.
 
 ***Top Tip***: Stick to comparing _numerical_ values with the relational
  operators and you'll be golden.
@@ -177,5 +177,3 @@ and you'll avoid those annoying troubleshooting errors that can drive you crazy!
   + [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 - [JavaScript Equality Table](http://dorey.github.io/JavaScript-Equality-Table/)
 - [freeCodeCamp Forum — JavaScript Comparison Operators](https://forum.freecodecamp.org/t/javascript-comparison-operators/14660)
-
-[convert]:(https://gomakethings.com/converting-strings-to-numbers-with-vanilla-javascript/)
